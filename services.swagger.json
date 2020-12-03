@@ -1,0 +1,77 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "agenda/services.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "agendaPerson": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Id with the person identifier."
+        },
+        "name": {
+          "type": "string",
+          "description": "Name with the full name."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email to receive notifications."
+        }
+      },
+      "description": "Person message defining an entry of the agenda."
+    },
+    "agendaPersonList": {
+      "type": "object",
+      "properties": {
+        "persons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/agendaPerson"
+          },
+          "description": "Persons array."
+        }
+      },
+      "description": "PersonList message with a collection of persons."
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
